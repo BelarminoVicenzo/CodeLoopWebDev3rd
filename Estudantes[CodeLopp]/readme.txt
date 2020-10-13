@@ -1,0 +1,62 @@
+﻿
+
+metodologia
+
+entrar  para um projecto e funcoes= átomos
+
+
+
+
+instalar wamp, instalar o workbench
+
+criar bd
+
+
+SerieDeIngresso{
+id :int
+serie :varchar(3)
+}
+
+Endereco{
+id :int,
+cep :varchar (8) //nao é primario pq pode repetir,
+rua :varchar (120)
+numeroDaResidencia :int
+complemento :varchar (50)
+bairro :varchar (100)
+cidade :varchar (30) //São José do Vale do Rio Preto ,30char
+estado :varchar (25)
+
+ 
+
+}
+
+Mae{
+
+nome: varchar(100 caracteres)
+cpf(CPF válido)
+dataPreferencialPagamento (para pagamento da mensalidade (Data válida))
+
+
+}
+
+Aluno
+{
+
+nome :varchar (100),
+datanascimento (formato dd/mm/aaaa),
+idSerieDeIngresso :int,
+IdEndereco :int
+idMae :int
+}
+
+
+
+
+
+----requisitos funcionais
+
+O usuário deve poder criar, editar e deletar alunos com as seguintes informações:
+O usuário deve poder ver todos os alunos cadastrados.
+
+
