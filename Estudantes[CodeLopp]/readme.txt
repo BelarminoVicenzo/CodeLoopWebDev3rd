@@ -1,13 +1,6 @@
 ﻿
 
-metodologia
-
-entrar  para um projecto e funcoes= átomos
-
-
-
-
-instalar wamp, instalar o workbench
+instalar wamp, instalar o workbench -feito
 
 criar bd
 
@@ -33,8 +26,8 @@ estado :varchar (25)
 
 Mae{
 
-nome: varchar(100 caracteres)
-cpf(CPF válido)
+nome :varchar(100 caracteres)
+cpf :varchar(11)(CPF válido)
 dataPreferencialPagamento (para pagamento da mensalidade (Data válida))
 
 
