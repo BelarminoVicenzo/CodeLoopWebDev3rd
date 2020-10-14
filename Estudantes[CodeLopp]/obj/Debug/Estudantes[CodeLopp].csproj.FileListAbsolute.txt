@@ -102,4 +102,8 @@ C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[Code
 C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\obj\Debug\Estudantes[CodeLopp].csproj.CopyComplete
 C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\obj\Debug\Estudantes[CodeLopp].dll
 C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\obj\Debug\Estudantes[CodeLopp].pdb
+C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\bin\EntityFramework.dll
+C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\bin\EntityFramework.SqlServer.dll
+C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\bin\EntityFramework.xml
+C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\bin\EntityFramework.SqlServer.xml
 C:\Users\ArquiAO4\Desktop\Watashi da\LunchTime\CodeLoopWebDev3rd\Estudantes[CodeLopp]\obj\Debug\Estudantes[CodeLopp].csprojAssemblyReference.cache

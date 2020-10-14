@@ -14,7 +14,12 @@ namespace Estudantes_CodeLopp_.Controllers
     public class SerieDeIngressoController : Controller
     {
 
-        DAOSerieDeIngresso daoSerie = new DAOSerieDeIngresso();
+        DAOSerieDeIngresso daoSerie;
+        public SerieDeIngressoController()
+        {
+        daoSerie=new DAOSerieDeIngresso();
+
+        }
         public ActionResult Index()
         {
 
@@ -32,10 +37,12 @@ namespace Estudantes_CodeLopp_.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(SerieDeIngresso serie)
+        public ActionResult Cadastrar(/*[Bind(Include = "serie")]*/ [Bind(Include = "id,serie")] SerieDeIngresso serie)
         {
             if (ModelState.IsValid)
             {
+                //var x = new SerieDeIngresso { Serie = serie };
+                //var resultado = daoSerie.Inserir(x);
                 var resultado = daoSerie.Inserir(serie);
                 if (resultado > -1)
                 {
@@ -78,6 +85,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Editar([Bind(Include = "id,nome")]SerieDeIngresso serie)
         {
             
