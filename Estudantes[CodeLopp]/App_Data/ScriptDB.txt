@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `estudantes`.`Endereco` ;
 
 CREATE TABLE IF NOT EXISTS `estudantes`.`Endereco` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `cep` VARCHAR(8) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
   `rua` VARCHAR(100) NOT NULL,
   `numeroDaResidencia` INT NOT NULL,
   `complemento` VARCHAR(50) NOT NULL,
