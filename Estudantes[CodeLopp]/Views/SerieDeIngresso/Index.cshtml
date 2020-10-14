@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Estudantes_CodeLopp_.Models.SerieDeIngresso>
+
+@{
+    ViewBag.Title = "Lista de Séries de Ingresso";
+}
+
+
+<br />
+<p>
+    @Html.ActionLink("Criar nova série", "Cadastrar")
+</p>
+<br />
+
+@ViewBag.Conexao
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Serie)
+        </th>
+        
+         
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Serie)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Ver detalhadamente", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

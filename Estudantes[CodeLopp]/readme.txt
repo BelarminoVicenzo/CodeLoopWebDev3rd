@@ -54,7 +54,7 @@ O usuário deve poder ver todos os alunos cadastrados.
 
 
 criar interfaces
-criar classes
+criar classes -feito
 criar dtos
 criar viewmodels
 

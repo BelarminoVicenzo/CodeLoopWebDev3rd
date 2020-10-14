@@ -165,11 +165,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\SerieDeIngressoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\DAOs\DAOSerieDeIngresso.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\SerieDeIngresso.cs" />
     <Compile Include="Models\Mae.cs" />
@@ -213,8 +215,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SerieDeIngresso\Cadastrar.cshtml" />
+    <Content Include="Views\SerieDeIngresso\Index.cshtml" />
+    <Content Include="Views\SerieDeIngresso\Editar.cshtml" />
+    <Content Include="Views\SerieDeIngresso\Detalhes.cshtml" />
+    <Content Include="Views\SerieDeIngresso\Eliminar.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Utilidades\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
