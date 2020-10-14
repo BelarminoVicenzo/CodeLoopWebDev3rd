@@ -26,5 +26,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
             return View();
         }
+
+ 
     }
 }
