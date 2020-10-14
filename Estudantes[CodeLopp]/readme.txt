@@ -2,7 +2,7 @@
 
 instalar wamp, instalar o workbench -feito
 
-criar bd
+criar bd -feito
 
 
 SerieDeIngresso{
@@ -51,5 +51,11 @@ idMae :int
 
 O usuário deve poder criar, editar e deletar alunos com as seguintes informações:
 O usuário deve poder ver todos os alunos cadastrados.
+
+
+criar interfaces
+criar classes
+criar dtos
+criar viewmodels
 
 
