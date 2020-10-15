@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Estudantes_CodeLopp_.AutoMapperConfig;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +18,10 @@ namespace Estudantes_CodeLopp_
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapper.Mapper.Initialize(
+                cfg => cfg.AddProfile<AutoMapperProfile>()
+                );
         }
     }
 }

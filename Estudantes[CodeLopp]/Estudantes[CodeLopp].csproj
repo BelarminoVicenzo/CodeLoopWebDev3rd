@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -100,6 +103,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -171,6 +175,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
+    <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\MaeController.cs" />
     <Compile Include="Controllers\SerieDeIngressoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -178,11 +185,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\DAOs\DAOEndereco.cs" />
     <Compile Include="Models\DAOs\DAOMae.cs" />
     <Compile Include="Models\DAOs\DAOSerieDeIngresso.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\SerieDeIngresso.cs" />
     <Compile Include="Models\Mae.cs" />
+    <Compile Include="Models\ViewModels\AlunoMaeEnderecoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +242,12 @@
     <Content Include="Views\Mae\Cadastrar.cshtml" />
     <Content Include="Views\Mae\Detalhes.cshtml" />
     <Content Include="Views\Mae\Eliminar.cshtml" />
+    <Content Include="Views\Aluno\Index.cshtml" />
+    <Content Include="Views\Aluno\Cadastrar.cshtml" />
+    <Content Include="Views\Endereco\Index.cshtml" />
+    <Content Include="Views\Endereco\Detalhes.cshtml" />
+    <Content Include="Views\Endereco\Eliminar.cshtml" />
+    <Content Include="Views\Endereco\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilidades\" />
