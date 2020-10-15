@@ -6,6 +6,7 @@ using System.Web;
 using AutoMapper;
 
 using Estudantes_CodeLopp_.Models;
+using Estudantes_CodeLopp_.Models.DTOs;
 using Estudantes_CodeLopp_.Models.ViewModels;
 
 namespace Estudantes_CodeLopp_.AutoMapperConfig
@@ -48,6 +49,9 @@ namespace Estudantes_CodeLopp_.AutoMapperConfig
             CreateMap<Mae, AlunoMaeEnderecoViewModel>()
                 .ForMember(dest => dest.NomeCompletoMae, map => map.MapFrom(src => src.NomeCompleto));
 
+
         }
     }
+
+   
 }

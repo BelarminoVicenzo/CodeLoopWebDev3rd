@@ -16,8 +16,12 @@ namespace Estudantes_CodeLopp_.Models
         [Display(Name = "Nome Completo")]
         [StringLength(100)]
         public string NomeCompleto { get; set; }
+        
+        [Display(Name = "Série de Ingresso")]
         public int IdSerieDeIngresso { get; set; }
+        [Display(Name = "Nome e CPF Mãe")]
         public int IdMae { get; set; }
+        [Display(Name = "Id do Endereço")]
         public int IdEndereco { get; set; }
 
 

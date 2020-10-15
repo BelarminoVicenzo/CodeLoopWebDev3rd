@@ -39,7 +39,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
-
+        
 
         public int Inserir(Endereco end)
         {
@@ -48,8 +48,8 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             {
 
                 string sql = $"INSERT INTO endereco (cep, rua, numeroDaResidencia, complemento, bairro, cidade, estado) " +
-                    $"VALUES({end.CEP},{end.Rua},{end.NumeroDaResidencia}," +
-                    $"{end.Complemento},{end.Bairro},{end.Cidade},{end.Estado}; ";
+                    $"VALUES('{end.CEP}','{end.Rua}',{end.NumeroDaResidencia}," +
+                    $"'{end.Complemento}','{end.Bairro}','{end.Cidade}','{end.Estado}'); ";
 
                 return db.Execute(sql, commandType: CommandType.Text);
             }

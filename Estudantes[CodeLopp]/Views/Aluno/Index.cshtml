@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Estudantes_CodeLopp_.Models.ViewModels.AlunoMaeEnderecoViewModel>
+﻿@model IEnumerable<Estudantes_CodeLopp_.Models.DTOs.DTOAluno>
 
 @{
     ViewBag.Title = "Index";
@@ -7,20 +7,19 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar novo registo", "Cadastrar")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IdAluno)
+            @Html.DisplayNameFor(model => model.NomeCompleto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NomeCompletoAluno)
+            @Html.DisplayNameFor(model => model.Serie)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IdSerieDeIngresso)
+            @Html.DisplayNameFor(model => model.NomeCompletoMae)
         </th>
-       
         <th>
             @Html.DisplayNameFor(model => model.CEP)
         </th>
@@ -42,67 +41,55 @@
         <th>
             @Html.DisplayNameFor(model => model.Estado)
         </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.NomeCompletoMae)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataPreferencialPagamento)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAluno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCompletoAluno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdSerieDeIngresso)
-        </td>
-                <td>
-            @Html.DisplayFor(modelItem => item.CEP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rua)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDaResidencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCompletoMae)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CPF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataPreferencialPagamento)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Ver detalhadamente", "Detalhes", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serie)
+            </td>
+            <td>
+                @{
+                    var mae = item.NomeCompletoMae;
+                                  
+                    <a href="/Mae/Detalhes/@item.IdMae" target="_blank">@item.NomeCompletoMae</a>
+                }
+
+                
+
+            </td>
+            <td style="white-space: nowrap;">
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td style="white-space: nowrap;">
+                @Html.DisplayFor(modelItem => item.Rua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDaResidencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td style="white-space: nowrap;">
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td style="white-space: nowrap;">
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td style="white-space: nowrap;">
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar (aluno)", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Ver detalhadamente", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutoMapperConfig\AutoMapperProfile.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\AlunoMaeEnderecoController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\MaeController.cs" />
     <Compile Include="Controllers\SerieDeIngressoController.cs" />
@@ -185,9 +186,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\DAOs\DAOAluno.cs" />
     <Compile Include="Models\DAOs\DAOEndereco.cs" />
     <Compile Include="Models\DAOs\DAOMae.cs" />
     <Compile Include="Models\DAOs\DAOSerieDeIngresso.cs" />
+    <Compile Include="Models\DTOs\DTOAluno.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\SerieDeIngresso.cs" />
     <Compile Include="Models\Mae.cs" />
@@ -242,12 +245,18 @@
     <Content Include="Views\Mae\Cadastrar.cshtml" />
     <Content Include="Views\Mae\Detalhes.cshtml" />
     <Content Include="Views\Mae\Eliminar.cshtml" />
-    <Content Include="Views\Aluno\Index.cshtml" />
-    <Content Include="Views\Aluno\Cadastrar.cshtml" />
+    <Content Include="Views\AlunoMaeEndereco\Index.cshtml" />
+    <Content Include="Views\AlunoMaeEndereco\Cadastrar.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
     <Content Include="Views\Endereco\Detalhes.cshtml" />
     <Content Include="Views\Endereco\Eliminar.cshtml" />
     <Content Include="Views\Endereco\Editar.cshtml" />
+    <Content Include="Views\Endereco\Cadastrar.cshtml" />
+    <Content Include="Views\Aluno\Index.cshtml" />
+    <Content Include="Views\Aluno\Detalhes.cshtml" />
+    <Content Include="Views\Aluno\Eliminar.cshtml" />
+    <Content Include="Views\Aluno\Editar.cshtml" />
+    <Content Include="Views\Aluno\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilidades\" />

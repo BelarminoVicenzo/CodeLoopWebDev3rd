@@ -25,6 +25,26 @@ namespace Estudantes_CodeLopp_.Controllers
             return View(daoEndereco.ObterTudo());
         }
 
+        public ActionResult Cadastrar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cadastrar([Bind(Include = "id,cep,rua,numeroDaResidencia,complemento,bairro,cidade,estado")] Endereco endereco)
+        {
+            if (ModelState.IsValid)
+            {
+                var resultado = daoEndereco.Inserir(endereco);
+                if (resultado > -1)
+                {
+
+                    return RedirectToAction("Index", "Endereco");
+                }
+            }
+            return View(endereco);
+        }
 
         public ActionResult Detalhes(int id)
         {

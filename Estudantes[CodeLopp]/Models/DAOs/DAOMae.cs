@@ -26,6 +26,18 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             
         }
         
+        public List<Mae> ObterNomeECPF()
+        {
+           //
+            using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
+            {
+
+                string sql = "SELECT id, concat(nomeCompleto,' - ',cpf) 'nomeCompleto' FROM estudantes.mae;";
+               return  db.Query<Mae>(sql, commandType: CommandType.Text).ToList();
+            }
+            
+        }
+        
         //Obtem apenas um registo
         public Mae Obter(Mae mae)
         {

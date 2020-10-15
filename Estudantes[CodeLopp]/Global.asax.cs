@@ -22,6 +22,7 @@ namespace Estudantes_CodeLopp_
             AutoMapper.Mapper.Initialize(
                 cfg => cfg.AddProfile<AutoMapperProfile>()
                 );
+
         }
     }
 }
