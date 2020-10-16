@@ -77,7 +77,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
-                string sql = $"update seriedeingresso set serie='{serie.Serie}' where id={serie.Id}";
+                string sql = $"update seriedeingresso set serie='{serie.Serie}' where {nameof(serie.Id)}={serie.Id}";
                 return db.Execute(sql, commandType: CommandType.Text);
             }
 
