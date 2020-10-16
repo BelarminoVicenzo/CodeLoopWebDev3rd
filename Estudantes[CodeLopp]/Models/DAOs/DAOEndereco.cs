@@ -14,6 +14,12 @@ namespace Estudantes_CodeLopp_.Models.DAOs
     public class DAOEndereco
     {
 
+        Endereco _end;
+        public DAOEndereco()
+        {
+            _end = new Endereco();
+        }
+
         /// <summary>
         /// Para obter todos registos
         /// </summary>
@@ -24,7 +30,8 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = "select id, cep, rua, numeroDaResidencia, complemento, bairro, cidade, estado  from Endereco";
+                string sql = $"select {nameof(_end.Id)}, {nameof(_end.CEP)}, {nameof(_end.Rua)}, {nameof(_end.NumeroDaResidencia)}" +
+                    $", {nameof(_end.Complemento)}, {nameof(_end.Bairro)}, {nameof(_end.Cidade)}, {nameof(_end.Estado)}  from Endereco";
                 return db.Query<Endereco>(sql, commandType: CommandType.Text).ToList();
             }
 
@@ -41,7 +48,9 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"select id, cep, rua, numeroDaResidencia, complemento, bairro, cidade, estado  from Endereco where id={end.Id}";
+                string sql = $"select {nameof(_end.Id)}, {nameof(_end.CEP)}, {nameof(_end.Rua)}," +
+                    $" {nameof(_end.NumeroDaResidencia)}, {nameof(_end.Complemento)}, {nameof(_end.Bairro)}," +
+                    $" {nameof(_end.Cidade)}, {nameof(_end.Estado)}  from Endereco where {nameof(_end.Id)}={end.Id}";
                 return db.Query<Endereco>(sql, commandType: CommandType.Text).FirstOrDefault();
             }
 
@@ -59,8 +68,9 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"INSERT INTO endereco (cep, rua, numeroDaResidencia, complemento, bairro, cidade, estado) " +
-                    $"VALUES('{end.CEP}','{end.Rua}',{end.NumeroDaResidencia}," +
+                string sql = $"INSERT INTO endereco ({nameof(_end.CEP)}, {nameof(_end.Rua)}, {nameof(_end.NumeroDaResidencia)}," +
+                    $" {nameof(_end.Complemento)}, {nameof(_end.Bairro)}, {nameof(_end.Cidade)}," +
+                    $" {nameof(_end.Estado)}) VALUES('{end.CEP}','{end.Rua}',{end.NumeroDaResidencia}," +
                     $"'{end.Complemento}','{end.Bairro}','{end.Cidade}','{end.Estado}'); ";
 
                 return db.Execute(sql, commandType: CommandType.Text);
@@ -78,9 +88,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
-                string sql = $"update endereco set cep='{end.CEP}', rua='{end.Rua}'," +
-                    $"numeroDaResidencia={end.NumeroDaResidencia}, complemento='{end.Complemento}'," +
-                    $" bairro='{end.Bairro}', cidade='{end.Cidade}', estado='{end.Estado}'  where id={end.Id}";
+                string sql = $"update endereco set {nameof(_end.CEP)}='{end.CEP}', {nameof(_end.Rua)}='{end.Rua}'," +
+                    $"{nameof(_end.NumeroDaResidencia)}={end.NumeroDaResidencia}, " +
+                    $"{nameof(_end.Complemento)}='{end.Complemento}', {nameof(_end.Bairro)}='{end.Bairro}'," +
+                    $" {nameof(_end.Cidade)}='{end.Cidade}', {nameof(_end.Estado)}='{end.Estado}'  where {nameof(_end.Id)}={end.Id}";
                 return db.Execute(sql, commandType: CommandType.Text);
             }
 
@@ -95,7 +106,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
-                string sql = $"delete from  Endereco where id={end.Id}";
+                string sql = $"delete from  Endereco where {nameof(_end.Id)}={end.Id}";
                 return db.Execute(sql, commandType: CommandType.Text);
             }
         }

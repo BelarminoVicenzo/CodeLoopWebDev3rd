@@ -9,9 +9,11 @@ namespace Estudantes_CodeLopp_.Controllers
     {
 
         private DAOMae daoMae;
+        
         public MaeController()
         {
             daoMae = new DAOMae();
+            
         }
         // GET: Mae
         public ActionResult Index()
@@ -77,7 +79,7 @@ namespace Estudantes_CodeLopp_.Controllers
                 if (resultado > -1)
                 {
 
-                    return RedirectToAction("Index", "SerieDeIngresso");
+                    return RedirectToAction("Index", "Mae");
                 }
 
             }

@@ -65,3 +65,5 @@ Por algum motivo não consigo cadastrar ou editar a SerieDeIngressos, erro no mo
 
 Validar o CPF, CPF não deve ser repetido
 
+Fix -mae data preferencial não carregar vindo da BD
+
