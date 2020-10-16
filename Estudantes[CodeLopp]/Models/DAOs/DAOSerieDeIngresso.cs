@@ -2,8 +2,6 @@
 
 using MySql.Data.MySqlClient;
 
-using MySqlX.XDevAPI.Common;
-
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,33 +14,47 @@ namespace Estudantes_CodeLopp_.Models.DAOs
     public class DAOSerieDeIngresso
     {
 
+        /// <summary>
+        /// Para obter todos registos
+        /// </summary>
+        /// <returns></returns>
         public List<SerieDeIngresso> ObterTudo()
         {
-            //List<SerieDeIngresso> serie;
+            
+
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
                 string sql = "select id, serie from seriedeingresso";
-               return  db.Query<SerieDeIngresso>(sql, commandType: CommandType.Text).ToList();
+                return db.Query<SerieDeIngresso>(sql, commandType: CommandType.Text).ToList();
             }
-            
+
         }
-        
-        //Obtem apenas um registo
-        public SerieDeIngresso Obter(SerieDeIngresso serie)
+
+
+        /// <summary>
+        /// Para obter um único registo de acordo ao id
+        /// </summary>
+        /// <param name="serie"></param>
+        /// <returns></returns>
+        public SerieDeIngresso ObterPeloId(SerieDeIngresso serie)
         {
-           
+            
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
                 string sql = $"select id, serie from seriedeingresso where id={serie.Id}";
                 return db.Query<SerieDeIngresso>(sql, commandType: CommandType.Text).FirstOrDefault();
             }
-            
+
         }
 
 
-
+        /// <summary>
+        /// Para inserir um novo registo
+        /// </summary>
+        /// <param name="serie"></param>
+        /// <returns></returns>
         public int Inserir(SerieDeIngresso serie)
         {
             
@@ -50,22 +62,32 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             {
 
                 string sql = $"INSERT INTO `estudantes`.`seriedeingresso` (serie) values ('{serie.Serie}')";
-               return db.Execute(sql, commandType: CommandType.Text);
+                return db.Execute(sql, commandType: CommandType.Text);
             }
-           
+
         }
 
+        /// <summary>
+        /// Para actualizar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="serie"></param>
+        /// <returns></returns>
         public int Actualizar(SerieDeIngresso serie)
         {
-            
+
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
                 string sql = $"update seriedeingresso set serie='{serie.Serie}' where id={serie.Id}";
-               return db.Execute(sql, commandType: CommandType.Text);
+                return db.Execute(sql, commandType: CommandType.Text);
             }
-           
+
         }
 
+        /// <summary>
+        /// Para eliminar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="serie"></param>
+        /// <returns></returns>
         public int Eliminar(SerieDeIngresso serie)
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))

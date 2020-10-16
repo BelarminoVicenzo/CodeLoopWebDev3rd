@@ -57,7 +57,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Detalhes(int id)
         {
-            var serie = daoSerie.Obter(new SerieDeIngresso { Id = id });
+            var serie = daoSerie.ObterPeloId(new SerieDeIngresso { Id = id });
             if (serie == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -72,7 +72,7 @@ namespace Estudantes_CodeLopp_.Controllers
         public ActionResult Editar(int id)
         {
 
-            var serie = daoSerie.Obter(new SerieDeIngresso { Id = id });
+            var serie = daoSerie.ObterPeloId(new SerieDeIngresso { Id = id });
             if (serie == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -108,7 +108,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            var serie = daoSerie.Obter(new SerieDeIngresso { Id = id });
+            var serie = daoSerie.ObterPeloId(new SerieDeIngresso { Id = id });
             if (serie == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
