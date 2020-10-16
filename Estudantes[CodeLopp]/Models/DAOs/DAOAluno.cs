@@ -16,6 +16,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
     public class DAOAluno
     {
 
+        /// <summary>
+        /// Para obter todos registos
+        /// </summary>
+        /// <returns></returns>
         public List<Aluno> ObterTudo()
         {
             //
@@ -27,7 +31,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             }
 
         }
-        
+        /// <summary>
+        /// Para obter todos registos com base nas tabelas relacionadas (mae,seriedeingresso e endereco)
+        /// </summary>
+        /// <returns></returns>
         public List<DTOAluno> ObterTudoDTO()
         {
             //
@@ -44,8 +51,12 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
-        //Obtem apenas um registo
-        public Aluno Obter(Aluno aluno)
+        /// <summary>
+        /// Para obter um único registo de acordo ao id
+        /// </summary>
+        /// <param name="aluno"></param>
+        /// <returns></returns>
+        public Aluno ObterPeloId(Aluno aluno)
         {
 
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
@@ -56,8 +67,13 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             }
 
         }
-       
-        //Obtem apenas um registo de todas tabelas interligadas
+
+
+        /// <summary>
+        /// Para obter um único registo com base nas tabelas relacionadas (mae,seriedeingresso e endereco)
+        /// </summary>
+        /// <param name="aluno"></param>
+        /// <returns></returns>
         public DTOAluno ObterDTO(Aluno aluno)
         {
 
@@ -75,7 +91,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
         }
 
 
-
+        /// <summary>
+        /// Para inserir um novo registo
+        /// </summary>
+        /// <param name="aluno"></param>
+        /// <returns></returns>
         public int Inserir(Aluno aluno)
         {
 
@@ -91,6 +111,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para actualizar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="aluno"></param>
+        /// <returns></returns>
         public int Actualizar(Aluno aluno)
         {
 
@@ -103,6 +128,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para eliminar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="aluno"></param>
+        /// <returns></returns>
         public int Eliminar(Aluno aluno)
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))

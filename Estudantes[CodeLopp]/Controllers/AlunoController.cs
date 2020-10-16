@@ -69,7 +69,7 @@ namespace Estudantes_CodeLopp_.Controllers
         }
         public ActionResult Editar(string id)
         {
-            var aluno = daoAluno.Obter(new Aluno { Id = id });
+            var aluno = daoAluno.ObterPeloId(new Aluno { Id = id });
             if (aluno == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
