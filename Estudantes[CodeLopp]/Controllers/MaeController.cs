@@ -46,7 +46,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Detalhes(int id)
         {
-            var mae = daoMae.Obter(new Mae { Id = id });
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
             if (mae == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -56,7 +56,7 @@ namespace Estudantes_CodeLopp_.Controllers
         }
         public ActionResult Editar(int id)
         {
-            var mae = daoMae.Obter(new Mae { Id = id });
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
             if (mae == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,7 +87,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            var mae = daoMae.Obter(new Mae { Id = id });
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
             if (mae == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

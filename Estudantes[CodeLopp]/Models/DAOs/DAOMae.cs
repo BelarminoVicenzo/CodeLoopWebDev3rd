@@ -13,7 +13,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
     public class DAOMae
     {
-
+        /// <summary>
+        /// Para obter todos registos
+        /// </summary>
+        /// <returns></returns>
         public List<Mae> ObterTudo()
         {
            //
@@ -26,6 +29,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             
         }
         
+        /// <summary>
+        /// Para obter todos nomes e cpfs
+        /// </summary>
+        /// <returns></returns>
         public List<Mae> ObterNomeECPF()
         {
            //
@@ -37,9 +44,13 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             }
             
         }
-        
-        //Obtem apenas um registo
-        public Mae Obter(Mae mae)
+
+        /// <summary>
+        /// Para obter um único registo de acordo ao id
+        /// </summary>
+        /// <param name="mae"></param>
+        /// <returns></returns>
+        public Mae ObterPeloId(Mae mae)
         {
            
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
@@ -52,7 +63,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
         }
 
 
-
+        /// <summary>
+        /// Para inserir um novo registo
+        /// </summary>
+        /// <param name="mae"></param>
+        /// <returns></returns>
         public int Inserir(Mae mae)
         {
             
@@ -66,7 +81,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             }
            
         }
-
+        /// <summary>
+        /// Para actualizar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="mae"></param>
+        /// <returns></returns>
         public int Actualizar(Mae mae)
         {
             
@@ -79,6 +98,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
            
         }
 
+        /// <summary>
+        /// Para eliminar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="mae"></param>
+        /// <returns></returns>
         public int Eliminar(Mae mae)
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
