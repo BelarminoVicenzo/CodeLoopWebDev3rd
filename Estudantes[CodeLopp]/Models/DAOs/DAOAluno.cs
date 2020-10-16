@@ -15,7 +15,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
     public class DAOAluno
     {
-
+        Aluno _aluno;
+        public DAOAluno()
+        {
+            _aluno = new Aluno();
+        }
         /// <summary>
         /// Para obter todos registos
         /// </summary>
@@ -26,7 +30,8 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = "select id, nomeCompleto,idSerieDeIngresso,idMae,idEndereco  from Aluno";
+                string sql = $"select {nameof(_aluno.Id)}, {nameof(_aluno.NomeCompleto)}," +
+                    $"{nameof(_aluno.IdSerieDeIngresso)},{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)}  from Aluno";
                 return db.Query<Aluno>(sql, commandType: CommandType.Text).ToList();
             }
 
@@ -62,7 +67,9 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"select id, nomeCompleto,idSerieDeIngresso,idMae,idEndereco from Aluno where id='{aluno.Id}'";
+                string sql = $"select {nameof(_aluno.Id)}, {nameof(_aluno.NomeCompleto)}," +
+                    $"{nameof(_aluno.IdSerieDeIngresso)},{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)}" +
+                    $" from Aluno where {nameof(_aluno.Id)}='{aluno.Id}'";
                 return db.Query<Aluno>(sql, commandType: CommandType.Text).FirstOrDefault();
             }
 
@@ -102,9 +109,9 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"INSERT INTO aluno (nomeCompleto,idSerieDeIngresso,idMae,idEndereco) " +
-                    $"VALUES('{aluno.NomeCompleto}',{aluno.IdSerieDeIngresso},{aluno.IdMae}," +
-                    $"{aluno.IdEndereco} );";
+                string sql = $"INSERT INTO aluno ({nameof(_aluno.NomeCompleto)},{nameof(_aluno.IdSerieDeIngresso)}," +
+                    $"{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)}) VALUES('{aluno.NomeCompleto}'," +
+                    $"{aluno.IdSerieDeIngresso},{aluno.IdMae}, {aluno.IdEndereco} );";
 
                 return db.Execute(sql, commandType: CommandType.Text);
             }
@@ -121,8 +128,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
-                string sql = $"update Aluno  set nomeCompleto='{aluno.NomeCompleto}', idSerieDeIngresso={aluno.IdSerieDeIngresso}," +
-                    $"idMae={aluno.IdMae}, idEndereco={aluno.IdEndereco}  where id='{aluno.Id}'";
+                string sql = $"update Aluno  set {nameof(_aluno.NomeCompleto)}='{aluno.NomeCompleto}', " +
+                    $"{nameof(_aluno.IdSerieDeIngresso)}={aluno.IdSerieDeIngresso}," +
+                    $"{nameof(_aluno.IdMae)}={aluno.IdMae}, {nameof(_aluno.IdEndereco)}={aluno.IdEndereco} " +
+                    $" where {nameof(_aluno.Id)}='{aluno.Id}'";
                 return db.Execute(sql, commandType: CommandType.Text);
             }
 
@@ -137,7 +146,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
-                string sql = $"delete from  Aluno where id='{aluno.Id}'";
+                string sql = $"delete from  Aluno where {nameof(_aluno.Id)}='{aluno.Id}'";
                 return db.Execute(sql, commandType: CommandType.Text);
             }
         }

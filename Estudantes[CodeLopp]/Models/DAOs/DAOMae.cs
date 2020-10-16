@@ -46,7 +46,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"SELECT {nameof(mae.Id)}, concat({mae.NomeCompleto},' - ',{nameof(mae.CPF)})" +
+                string sql = $"SELECT {nameof(mae.Id)}, concat({nameof(mae.NomeCompleto)},' - ',{nameof(mae.CPF)})" +
                     $" '{nameof(mae.NomeCompleto)}' FROM estudantes.mae;";
                 return db.Query<Mae>(sql, commandType: CommandType.Text).ToList();
             }
