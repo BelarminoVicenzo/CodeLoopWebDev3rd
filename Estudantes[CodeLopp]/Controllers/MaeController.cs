@@ -9,9 +9,11 @@ namespace Estudantes_CodeLopp_.Controllers
     {
 
         private DAOMae daoMae;
+        
         public MaeController()
         {
             daoMae = new DAOMae();
+            
         }
         // GET: Mae
         public ActionResult Index()
@@ -46,7 +48,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Detalhes(int id)
         {
-            var mae = daoMae.Obter(new Mae { Id = id });
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
             if (mae == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -56,7 +58,7 @@ namespace Estudantes_CodeLopp_.Controllers
         }
         public ActionResult Editar(int id)
         {
-            var mae = daoMae.Obter(new Mae { Id = id });
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
             if (mae == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -77,7 +79,7 @@ namespace Estudantes_CodeLopp_.Controllers
                 if (resultado > -1)
                 {
 
-                    return RedirectToAction("Index", "SerieDeIngresso");
+                    return RedirectToAction("Index", "Mae");
                 }
 
             }
@@ -85,27 +87,27 @@ namespace Estudantes_CodeLopp_.Controllers
 
         }
 
-        public ActionResult Eliminar(int id)
-        {
-            var mae = daoMae.Obter(new Mae { Id = id });
-            if (mae == null)
+            public ActionResult Eliminar(int id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var mae = daoMae.ObterPeloId(new Mae { Id = id });
+                if (mae == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                return View(mae);
             }
-            return View(mae);
-        }
         
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Eliminar(Mae mae)
-        {
-            var resultado = daoMae.Eliminar(mae);
-            if (resultado > -1)
+            [HttpPost]
+            [ValidateAntiForgeryToken]
+            public ActionResult Eliminar(Mae mae)
             {
-                return RedirectToAction("Index");
-            }
-            return View();
+                var resultado = daoMae.Eliminar(mae);
+                if (resultado > -1)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View();
 
+            }
         }
-    }
 }
