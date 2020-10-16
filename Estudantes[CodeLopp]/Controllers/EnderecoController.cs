@@ -48,7 +48,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Detalhes(int id)
         {
-            var end = daoEndereco.Obter(new Endereco { Id = id });
+            var end = daoEndereco.ObterPeloId(new Endereco { Id = id });
             if (end == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -58,7 +58,7 @@ namespace Estudantes_CodeLopp_.Controllers
         }
         public ActionResult Editar(int id)
         {
-            var end = daoEndereco.Obter(new Endereco { Id = id });
+            var end = daoEndereco.ObterPeloId(new Endereco { Id = id });
             if (end == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,7 +89,7 @@ namespace Estudantes_CodeLopp_.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            var end = daoEndereco.Obter(new Endereco { Id = id });
+            var end = daoEndereco.ObterPeloId(new Endereco { Id = id });
             if (end == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

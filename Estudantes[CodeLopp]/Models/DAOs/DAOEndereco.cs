@@ -14,6 +14,10 @@ namespace Estudantes_CodeLopp_.Models.DAOs
     public class DAOEndereco
     {
 
+        /// <summary>
+        /// Para obter todos registos
+        /// </summary>
+        /// <returns></returns>
         public List<Endereco> ObterTudo()
         {
             //
@@ -26,8 +30,12 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
-        //Obtem apenas um registo
-        public Endereco Obter(Endereco end)
+        /// <summary>
+        /// Para obter um único registo de acordo ao id
+        /// </summary>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public Endereco ObterPeloId(Endereco end)
         {
 
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
@@ -39,8 +47,12 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
-        
 
+        /// <summary>
+        /// Para inserir um novo registo
+        /// </summary>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public int Inserir(Endereco end)
         {
 
@@ -56,6 +68,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para actualizar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public int Actualizar(Endereco end)
         {
 
@@ -69,6 +86,11 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para eliminar um registo existente de acordo ao id
+        /// </summary>
+        /// <param name="end"></param>
+        /// <returns></returns>
         public int Eliminar(Endereco end)
         {
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
