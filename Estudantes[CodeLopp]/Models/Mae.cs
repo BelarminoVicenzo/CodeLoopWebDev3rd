@@ -14,8 +14,8 @@ namespace Estudantes_CodeLopp_.Models
         public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!")]
-        [StringLength(11,MinimumLength =11,ErrorMessage ="O CPF tem de ter no mínimo {2} e no máximo {1}")]
-        public int CPF { get; set; }
+        [StringLength(12,MinimumLength =12,ErrorMessage ="O CPF tem de ter no mínimo 11 e no máximo 11 sem o traço")]
+        public string CPF { get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

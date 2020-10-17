@@ -1,0 +1,63 @@
+﻿@model Estudantes_CodeLopp_.Models.Aluno
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.NomeCompleto, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdSerieDeIngresso, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(model => model.IdSerieDeIngresso, null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdSerieDeIngresso, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdMae, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(model => model.IdMae, null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdMae, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.IdEndereco, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*<a href="/Mae/Detalhes/1" target="_blank">    (Clique para ver os endereços)</a>*@
+        @Html.ActionLink("(Clique para ver os endereços)", "Index", "Endereco", null, htmlAttributes: new { target = "_blank" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IdEndereco, null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdEndereco, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cadastrar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Voltar para Lista", "Index")
+</div>

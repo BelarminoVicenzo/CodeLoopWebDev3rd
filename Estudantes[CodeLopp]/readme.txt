@@ -55,7 +55,15 @@ O usuário deve poder ver todos os alunos cadastrados.
 
 criar interfaces
 criar classes -feito
-criar dtos
+criar dtos -feito
 criar viewmodels
 
+
+Por algum motivo não consigo cadastrar ou editar a SerieDeIngressos, erro no modelo
+é como s o model na View não estivesse a obter os dados e vai para a DAO em branco
+
+
+Validar o CPF, CPF não deve ser repetido
+
+Fix -mae data preferencial não carregar vindo da BD
 
