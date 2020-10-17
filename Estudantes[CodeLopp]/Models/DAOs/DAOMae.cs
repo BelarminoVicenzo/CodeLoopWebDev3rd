@@ -71,6 +71,29 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para verificar pela existência do cpf
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        public bool VerificarExistenciaCPF(string cpf)
+        {
+
+            using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
+            {
+
+                string sql = $" select count(*) from mae where cpf='cpf';";
+                    var resultado=db.Query<int>(sql, commandType: CommandType.Text).FirstOrDefault();
+                if (resultado>0)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+        }
+
+
 
         /// <summary>
         /// Para inserir um novo registo
@@ -83,7 +106,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"INSERT INTO mae ({nameof(mae.NomeCompleto)}, {nameof(mae.CPF)}, {nameof(mae.DataPreferencialPagamento)}" +
+                string sql = $"INSERT INTO mae ({nameof(mae.NomeCompleto)}, {nameof(mae.CPF)}, {nameof(mae.DataPreferencialPagamento)})" +
                     $" VALUES ('{mae.NomeCompleto}', '{mae.CPF}', '{mae.DataPreferencialPagamento.Value.ToString("yyyy-MM-dd")}')";
 
                 return db.Execute(sql, commandType: CommandType.Text);

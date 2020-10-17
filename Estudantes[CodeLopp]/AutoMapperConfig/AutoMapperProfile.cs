@@ -22,11 +22,6 @@ namespace Estudantes_CodeLopp_.AutoMapperConfig
                 .ForMember(dest => dest.IdMae, map => map.MapFrom(src => src.IdMaeFK))
                 .ForMember(dest => dest.IdEndereco, map => map.MapFrom(src => src.IdEnderecoFK)).ReverseMap();
             
-            //Aluno ->AME
-            CreateMap<Aluno, AlunoMaeEnderecoViewModel>()
-                .ForMember(dest => dest.NomeCompletoAluno, map => map.MapFrom(src => src.NomeCompleto))
-                .ForMember(dest => dest.IdMaeFK, map => map.MapFrom(src => src.IdMae))
-                .ForMember(dest => dest.IdEnderecoFK, map => map.MapFrom(src => src.IdEndereco)).ReverseMap();
 
 
 
@@ -34,20 +29,11 @@ namespace Estudantes_CodeLopp_.AutoMapperConfig
             CreateMap<AlunoMaeEnderecoViewModel, Endereco>()
                 .ForMember(dest => dest.Bairro, map => map.MapFrom(src => src.Bairro));
 
-            //End->AME
-            CreateMap<Endereco, AlunoMaeEnderecoViewModel>()
-                .ForMember(dest => dest.Bairro, map => map.MapFrom(src => src.Bairro));
-
-
 
             //AME -> Mae
             CreateMap<AlunoMaeEnderecoViewModel, Mae>()
                 .ForMember(dest => dest.NomeCompleto, map => map.MapFrom(src => src.NomeCompletoMae));
-            
 
-            //Mae-> AME                
-            CreateMap<Mae, AlunoMaeEnderecoViewModel>()
-                .ForMember(dest => dest.NomeCompletoMae, map => map.MapFrom(src => src.NomeCompleto));
 
 
         }

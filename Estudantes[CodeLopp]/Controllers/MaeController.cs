@@ -1,5 +1,7 @@
 ﻿using Estudantes_CodeLopp_.Models;
 using Estudantes_CodeLopp_.Models.DAOs;
+using Estudantes_CodeLopp_.Utilidades;
+
 using System.Net;
 using System.Web.Mvc;
 
@@ -9,11 +11,11 @@ namespace Estudantes_CodeLopp_.Controllers
     {
 
         private DAOMae daoMae;
-        
+
         public MaeController()
         {
             daoMae = new DAOMae();
-            
+
         }
         // GET: Mae
         public ActionResult Index()
@@ -34,11 +36,18 @@ namespace Estudantes_CodeLopp_.Controllers
         {
             if (ModelState.IsValid)
             {
-                var resultado = daoMae.Inserir(mae);
-                if (resultado > -1)
+                if (CpfUtils.IsValidCPF(mae.CPF) && !daoMae.VerificarExistenciaCPF(mae.CPF))
                 {
-
-                    return RedirectToAction("Index", "Mae");
+                    var resultado = daoMae.Inserir(mae);
+                    if (resultado > -1)
+                    {
+                        return RedirectToAction("Index", "Mae");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(nameof(mae.CPF), "CPF incorrecto");
+                    return View(mae);
                 }
 
             }
@@ -63,7 +72,7 @@ namespace Estudantes_CodeLopp_.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             return View(mae);
 
         }
@@ -87,27 +96,27 @@ namespace Estudantes_CodeLopp_.Controllers
 
         }
 
-            public ActionResult Eliminar(int id)
+        public ActionResult Eliminar(int id)
+        {
+            var mae = daoMae.ObterPeloId(new Mae { Id = id });
+            if (mae == null)
             {
-                var mae = daoMae.ObterPeloId(new Mae { Id = id });
-                if (mae == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                return View(mae);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-        
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            public ActionResult Eliminar(Mae mae)
-            {
-                var resultado = daoMae.Eliminar(mae);
-                if (resultado > -1)
-                {
-                    return RedirectToAction("Index");
-                }
-                return View();
-
-            }
+            return View(mae);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Eliminar(Mae mae)
+        {
+            var resultado = daoMae.Eliminar(mae);
+            if (resultado > -1)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+
+        }
+    }
 }

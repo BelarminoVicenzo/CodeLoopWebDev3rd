@@ -97,6 +97,23 @@ namespace Estudantes_CodeLopp_.Models.DAOs
 
         }
 
+        /// <summary>
+        /// Para obter o último id inserido na bd
+        /// </summary>
+        /// <returns></returns>
+        public int ObterUltimoId()
+        {
+
+            using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
+            {
+
+                string sql = "select last_insert_id()";
+                return db.Query<int>(sql, commandType: CommandType.Text).FirstOrDefault();
+            }
+
+        }
+
+
 
         /// <summary>
         /// Para inserir um novo registo
@@ -109,9 +126,9 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"INSERT INTO aluno ({nameof(_aluno.NomeCompleto)},{nameof(_aluno.IdSerieDeIngresso)}," +
-                    $"{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)}) VALUES('{aluno.NomeCompleto}'," +
-                    $"{aluno.IdSerieDeIngresso},{aluno.IdMae}, {aluno.IdEndereco} );";
+                string sql = $"INSERT INTO aluno ({nameof(_aluno.Id)},{nameof(_aluno.NomeCompleto)})," +
+                    $"{nameof(_aluno.IdSerieDeIngresso)},{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)})" +
+                    $" VALUES('{aluno.Id}','{aluno.NomeCompleto}',{aluno.IdSerieDeIngresso},{aluno.IdMae}, {aluno.IdEndereco} );";
 
                 return db.Execute(sql, commandType: CommandType.Text);
             }
