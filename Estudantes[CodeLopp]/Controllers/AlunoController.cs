@@ -112,6 +112,7 @@ namespace Estudantes_CodeLopp_.Controllers
                 }
 
             }
+                    ViewBag.idSerieDeIngresso = new SelectList(daoSerie.ObterTudo(), "id", "serie");
             return View(ame);
 
         }

@@ -126,7 +126,7 @@ namespace Estudantes_CodeLopp_.Models.DAOs
             using (var db = new MySqlConnection(ConfigurationManager.ConnectionStrings["estudantescn"].ConnectionString))
             {
 
-                string sql = $"INSERT INTO aluno ({nameof(_aluno.Id)},{nameof(_aluno.NomeCompleto)})," +
+                string sql = $"INSERT INTO aluno ({nameof(_aluno.Id)},{nameof(_aluno.NomeCompleto)}," +
                     $"{nameof(_aluno.IdSerieDeIngresso)},{nameof(_aluno.IdMae)},{nameof(_aluno.IdEndereco)})" +
                     $" VALUES('{aluno.Id}','{aluno.NomeCompleto}',{aluno.IdSerieDeIngresso},{aluno.IdMae}, {aluno.IdEndereco} );";
 
